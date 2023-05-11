@@ -12,7 +12,6 @@ namespace RcSpeedStatistics
         string ModelType { get; }
 
         void AddSpeedValue(float speedValue);
-        void AddSpeedValue(decimal speedValue);
         void AddSpeedValue(string speedValue);
         void AddSpeedValue(char speedValue);
         Statistics GetStatistics();

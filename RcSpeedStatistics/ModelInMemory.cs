@@ -5,6 +5,7 @@ namespace RcSpeedStatistics
 {
     public class ModelInMemory : ModelBase
     {
+        public event SpeedAddedDelegate SpeedAdded;
         public ModelInMemory(string modelName, string modelType)
             : base (modelName, modelType)
         {            
@@ -17,6 +18,10 @@ namespace RcSpeedStatistics
             if (speedValue >= 10 && speedValue <=70) 
             {
                 speeds.Add(speedValue);
+                if(SpeedAdded != null)
+                {
+                    SpeedAdded(this, new EventArgs());
+                }
             }
             else
             {
@@ -80,11 +85,6 @@ namespace RcSpeedStatistics
             }
         }
 
-        public override void AddSpeedValue(decimal speedValue)
-        {
-            this.AddSpeedValue((float)speedValue);
-        }
-
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
@@ -102,11 +102,6 @@ namespace RcSpeedStatistics
                 Console.WriteLine(speed);
                 Console.WriteLine();
             }
-        }
-    
-    
-    
-    
-    
+        }        
     }
 }
