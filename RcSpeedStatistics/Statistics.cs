@@ -39,8 +39,5 @@ namespace RcSpeedStatistics
             MinSpeedValue = Math.Min(MinSpeedValue, speed);
 
         }
-
-
-
     }
 }
