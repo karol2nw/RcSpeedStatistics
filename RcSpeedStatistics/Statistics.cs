@@ -17,11 +17,25 @@ namespace RcSpeedStatistics
                 return sum / count;
             }
         }
-        
-        
+        public string ModelCategory
+        {
+            get
+            {
+                switch (this.AverageSpeedValue)
+                {
+                    case var average when average >= 60:
+                        return "First speed category";
+                    case var average when average >= 40:
+                        return "Second speed category";
+                    case var average when average >= 20:
+                        return "Third speed category";
+                    default :
+                        return "Fourth speed category";                    
+                }
+            }
+        }                      
         private float sum;
         private int count;
-
 
         public Statistics()
         {
