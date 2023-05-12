@@ -18,5 +18,6 @@ namespace RcSpeedStatistics
         public abstract void AddSpeedValue(string speedValue);       
         public abstract void AddSpeedValue(char speedValue);
         public abstract Statistics GetStatistics();
+        public abstract void ShowSpeedList();
     }
 }

@@ -2,6 +2,8 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
+
+
 Console.WriteLine($"This is application for counting Airplanes model speed statistics ");
 Console.WriteLine("========================================================");
 Console.WriteLine("You can add exact value or average value by letter A-G (70-10 kmph, every 10 kmph)");
@@ -11,9 +13,8 @@ Console.WriteLine("========================================================");
 Console.WriteLine("What do You want to do?");
 Console.WriteLine("To run application with memory statistics, press '1'");
 Console.WriteLine("To run application with speeds value saved to text file, press '2'");
-//var model = new ModelInMemory("Extra300","Acro");
-string input;
-input = Console.ReadLine();
+
+string input = Console.ReadLine();
 
 if( input == "1")
 {
@@ -24,46 +25,75 @@ if( input == "2")
     AddModelInFile();
 }
 
-//model.SpeedAdded += SpeedAdded;
 void SpeedAdded(object sedner, EventArgs args)
 {
     Console.WriteLine("New speed value was added");
 }
 
-
-
- ModelInMemory AddModelInMemory()
+void AddModelInMemory()
  {
     Console.WriteLine("input model Name");
     string modelName = Console.ReadLine();
+
     Console.WriteLine("input model type");
     string modelType = Console.ReadLine();
+    
     var  model = new ModelInMemory(modelName, modelType);
+    model.SpeedAdded += SpeedAdded;
+    
+    AddSpeed(model);
 
-    return model;
- }
+    var statistics = new Statistics();
+    statistics = model.GetStatistics();
 
-ModelInFile AddModelInFile()
+    model.ShowSpeedList();   
+    statistics.ShowStatistics();
+    
+    Console.ReadKey();
+}
+
+void AddModelInFile()
 {
     Console.WriteLine("input model Name");
     string modelName = Console.ReadLine();
+
     Console.WriteLine("input model type");
     string modelType = Console.ReadLine();
+
     var model = new ModelInFile(modelName, modelType);
-
-    return model;
+    model.SpeedAdded += SpeedAdded;
+   
+    AddSpeed(model);
+    
+    var statistics = new Statistics();
+    statistics = model.GetStatistics();     
+    statistics.ShowStatistics();
+    
+    Console.ReadKey();
 }
 
-while (true)
+void AddSpeed(IModel model)
 {
-    Console.WriteLine("Input airplane model speed ");
-    input = Console.ReadLine();
-    //model.AddSpeedValue(input);
-
-
-    if (input == "q")
+    while (true)
     {
-        break;
-    }
+        Console.WriteLine();
+        Console.WriteLine("Input airplane model speed ");
+       
+        input = Console.ReadLine();
+        try
+        {
+            model.AddSpeedValue(input);        
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Exeption catched : {e.Message}");
+        }
+        
 
+        if (input == "q")
+        {
+            break;
+        }
+    }
 }
+

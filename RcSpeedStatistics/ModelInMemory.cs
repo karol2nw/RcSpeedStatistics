@@ -95,13 +95,16 @@ namespace RcSpeedStatistics
             return statistics;
         }
    
-        public void ShowSpeedlist()
+        public override void ShowSpeedList()
         {
+            Console.WriteLine("Model speed list :");
             foreach (var speed in speeds)
             {
-                Console.WriteLine(speed);
-                Console.WriteLine();
+                Console.Write(speed + " ");
+                
             }
+            Console.WriteLine();
         }        
+
     }
 }
