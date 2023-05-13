@@ -6,7 +6,7 @@ Console.WriteLine("You can add exact value or average value by letter A-G (70-10
 Console.WriteLine("To quit data entry press : 'q'");
 Console.WriteLine("If You quit data entry, You will show data statistics");
 
-var model = new ModelInMemory("Extra300","Acro");
+//var model = new ModelInMemory("Extra300","Acro");
 string input;
 
 model.SpeedAdded += SpeedAdded;
