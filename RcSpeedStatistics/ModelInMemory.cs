@@ -6,6 +6,7 @@ namespace RcSpeedStatistics
     public class ModelInMemory : ModelBase
     {
         public event SpeedAddedDelegate SpeedAdded;
+       
         public ModelInMemory(string modelName, string modelType)
             : base (modelName, modelType)
         {            
@@ -37,7 +38,6 @@ namespace RcSpeedStatistics
             }
             else if (char.TryParse(speedValue, out char letter))
             {
-
                 this.AddSpeedValue(letter);
             }
             else 
@@ -45,6 +45,7 @@ namespace RcSpeedStatistics
                 throw new Exception("Invalid string Value");
             }                                                  
         }
+
         public override void AddSpeedValue(char speedValue)
         {
             switch(speedValue)
@@ -81,7 +82,7 @@ namespace RcSpeedStatistics
                 case 'q':
                     break;
                 default:
-                    throw new Exception("Invalid model speed, check your measure");
+                    throw new Exception("Invalid letter");
             }
         }
 
@@ -95,13 +96,15 @@ namespace RcSpeedStatistics
             return statistics;
         }
    
-        public void ShowSpeedlist()
+        public override void ShowSpeedList()
         {
+            Console.WriteLine($"You will see data for {ModelName}, {ModelType}");
+            Console.WriteLine("Model speed list :");
             foreach (var speed in speeds)
             {
-                Console.WriteLine(speed);
-                Console.WriteLine();
+                Console.Write(speed + " ");                
             }
+            Console.WriteLine();
         }        
     }
 }

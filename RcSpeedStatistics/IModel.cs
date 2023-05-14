@@ -15,6 +15,7 @@ namespace RcSpeedStatistics
         void AddSpeedValue(string speedValue);
         void AddSpeedValue(char speedValue);
         Statistics GetStatistics();
+        void ShowSpeedList();
 
 
     }

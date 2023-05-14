@@ -17,7 +17,7 @@ namespace RcSpeedStatistics
                 return sum / count;
             }
         }
-        public string ModelCategory
+        public string ModelSpeedCategory
         {
             get
             {
@@ -53,5 +53,15 @@ namespace RcSpeedStatistics
             MinSpeedValue = Math.Min(MinSpeedValue, speed);
 
         }
+        public void ShowStatistics()
+        {
+            Console.WriteLine("Model speed statistics :");
+            Console.WriteLine($"Min speed value : {MinSpeedValue}");
+            Console.WriteLine($"Max speed value : {MaxSpeedValue} ");
+            Console.WriteLine($"Average speed Value : {AverageSpeedValue}");
+            Console.WriteLine($"Model category : {ModelSpeedCategory}");
+        }
+    
+    
     }
 }
