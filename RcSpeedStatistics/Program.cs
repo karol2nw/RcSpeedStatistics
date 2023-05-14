@@ -11,7 +11,6 @@ Console.WriteLine("========================================================");
 Console.WriteLine("What do You want to do?");
 Console.WriteLine("To run application in memory mode, press '1'");
 Console.WriteLine("To run application with speeds value saved to text file, press '2'");
-
 string input = Console.ReadLine();
 
 if( input == "1")
@@ -22,7 +21,6 @@ if( input == "2")
 {
     AddModelInFile();
 }
-
 
 void SpeedAdded(object sedner, EventArgs args)
 {
@@ -88,8 +86,8 @@ void AddSpeed(IModel model)
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-        }
-        
+        }      
+
         if (input == "q")
         {
             break;
