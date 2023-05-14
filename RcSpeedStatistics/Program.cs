@@ -3,13 +3,13 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 
 Console.WriteLine($"This is application for counting Airplanes model speed statistics ");
-Console.WriteLine("========================================================");
+Console.WriteLine("===================================================================");
 Console.WriteLine("You can add exact value or average value by letter A-G (70-10 kmph, every 10 kmph)");
 Console.WriteLine("To quit data entry press : 'q'");
 Console.WriteLine("If You quit data entry, You will show data statistics");
 Console.WriteLine("========================================================");
 Console.WriteLine("What do You want to do?");
-Console.WriteLine("To run application in memory mode , press '1'");
+Console.WriteLine("To run application in memory mode, press '1'");
 Console.WriteLine("To run application with speeds value saved to text file, press '2'");
 
 string input = Console.ReadLine();
@@ -30,7 +30,7 @@ void SpeedAdded(object sedner, EventArgs args)
 }
 
 void AddModelInMemory()
- {
+{
     Console.WriteLine("input model Name");
     string modelName = Console.ReadLine();
 
@@ -78,7 +78,7 @@ void AddSpeed(IModel model)
     while (true)
     {
         Console.WriteLine();
-        Console.WriteLine("Input airplane model speed ");
+        Console.WriteLine("Input airplane model speed");
        
         input = Console.ReadLine();
         try

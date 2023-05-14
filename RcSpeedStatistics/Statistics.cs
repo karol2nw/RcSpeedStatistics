@@ -34,7 +34,7 @@ namespace RcSpeedStatistics
                 }
             }
         }                      
-        private float sum;
+        public float sum;
         private int count;
 
         public Statistics()
@@ -51,7 +51,6 @@ namespace RcSpeedStatistics
             count++;
             MaxSpeedValue = Math.Max(MaxSpeedValue, speed);
             MinSpeedValue = Math.Min(MinSpeedValue, speed);
-
         }
         public void ShowStatistics()
         {
@@ -60,8 +59,6 @@ namespace RcSpeedStatistics
             Console.WriteLine($"Max speed value : {MaxSpeedValue} ");
             Console.WriteLine($"Average speed Value : {AverageSpeedValue}");
             Console.WriteLine($"Model category : {ModelSpeedCategory}");
-        }
-    
-    
+        }        
     }
 }

@@ -4,7 +4,7 @@ namespace RcSpeedStatistics
 {
     public abstract class ModelBase : IModel
     {
-        public  delegate void SpeedAddedDelegate (object sender, EventArgs args);
+        public delegate void SpeedAddedDelegate (object sender, EventArgs args);
         public event SpeedAddedDelegate SpeedAdded;
         public string ModelName { get; private set; }
         public string ModelType { get; private set; }

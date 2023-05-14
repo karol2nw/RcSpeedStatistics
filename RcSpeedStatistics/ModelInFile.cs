@@ -7,14 +7,14 @@ namespace RcSpeedStatistics
         public event SpeedAddedDelegate SpeedAdded;
       
         private const string fileName = "_Speed.txt";
-        private string fullFileName;
+        private string fullFileName;       
        
         public ModelInFile(string modelName, string modelType)
             : base(modelName, modelType)
         {
             fullFileName =$"{modelName}{fileName}";
         }
-  
+     
         public override void AddSpeedValue(float speedValue)
         {
             if (speedValue >= 10 && speedValue <= 70)
@@ -33,7 +33,6 @@ namespace RcSpeedStatistics
                 throw new Exception("Invalid speed value");
             }
         }
-
         public override void AddSpeedValue(string speedValue)
         {
             if (float.TryParse(speedValue, out float result))
@@ -44,8 +43,11 @@ namespace RcSpeedStatistics
             {
                 this.AddSpeedValue(letter);
             }
+            else
+            {
+                throw new Exception("Invalid string Value");
+            }               
         }
-
         public override void AddSpeedValue(char speedValue)
         {
             switch (speedValue)
@@ -85,7 +87,6 @@ namespace RcSpeedStatistics
                     throw new Exception("Invalid letter");
             }
         }        
-
        private List<float> ReadSpeeds()                                
        {
             var speeds = new List<float>();
@@ -104,7 +105,6 @@ namespace RcSpeedStatistics
             }
             return speeds;
        }
-
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
@@ -114,7 +114,6 @@ namespace RcSpeedStatistics
             }
             return statistics;
         }
-    
         public override void ShowSpeedList()
         {
             Console.WriteLine($"You will see data for {ModelName}, {ModelType}");
