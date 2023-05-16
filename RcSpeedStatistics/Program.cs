@@ -1,6 +1,4 @@
 ﻿using RcSpeedStatistics;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 
 Console.WriteLine($"This is application for counting Airplanes model speed statistics ");
 Console.WriteLine("===================================================================");
@@ -13,11 +11,11 @@ Console.WriteLine("To run application in memory mode, press '1'");
 Console.WriteLine("To run application with speeds value saved to text file, press '2'");
 string input = Console.ReadLine();
 
-if( input == "1")
+if (input == "1")
 {
     AddModelInMemory();
 }
-if( input == "2")
+if (input == "2")
 {
     AddModelInFile();
 }
@@ -34,18 +32,18 @@ void AddModelInMemory()
 
     Console.WriteLine("input model type");
     string modelType = Console.ReadLine();
-    
-    var  model = new ModelInMemory(modelName, modelType);
+
+    var model = new ModelInMemory(modelName, modelType);
     model.SpeedAdded += SpeedAdded;
-    
+
     AddSpeed(model);
 
     var statistics = new Statistics();
     statistics = model.GetStatistics();
-   
-    model.ShowSpeedList();   
+
+    model.ShowSpeedList();
     statistics.ShowStatistics();
-    
+
     Console.ReadKey();
 }
 
@@ -59,15 +57,15 @@ void AddModelInFile()
 
     var model = new ModelInFile(modelName, modelType);
     model.SpeedAdded += SpeedAdded;
-   
+
     AddSpeed(model);
-    
+
     var statistics = new Statistics();
     statistics = model.GetStatistics();
 
     model.ShowSpeedList();
     statistics.ShowStatistics();
-    
+
     Console.ReadKey();
 }
 
@@ -77,16 +75,16 @@ void AddSpeed(IModel model)
     {
         Console.WriteLine();
         Console.WriteLine("Input airplane model speed");
-       
+
         input = Console.ReadLine();
         try
         {
-            model.AddSpeedValue(input);        
+            model.AddSpeedValue(input);
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-        }      
+        }
 
         if (input == "q")
         {

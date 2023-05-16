@@ -1,3 +1,4 @@
+
 namespace RcSpeedStatistics.Tests
 {
     public class ModelInMemoryStatisticTest
@@ -6,14 +7,14 @@ namespace RcSpeedStatistics.Tests
         [Test]
         public void SumTest()
         {
-            var model = new ModelInMemory("model", "testowy");            
+            var model = new ModelInMemory("model", "testowy");
             model.AddSpeedValue(43);
             model.AddSpeedValue("36");
-            model.AddSpeedValue('f');           
+            model.AddSpeedValue('f');
 
             var result = model.GetStatistics();
-                        
-            Assert.AreEqual(99,result.sum);
+
+            Assert.AreEqual(99, result.sum);
         }
 
         [Test]
@@ -67,16 +68,5 @@ namespace RcSpeedStatistics.Tests
 
             Assert.AreEqual("Third speed category", result.ModelSpeedCategory);
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }

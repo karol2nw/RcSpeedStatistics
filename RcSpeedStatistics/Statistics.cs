@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace RcSpeedStatistics
 {
     public class Statistics
@@ -29,11 +24,11 @@ namespace RcSpeedStatistics
                         return "Second speed category";
                     case var average when average >= 20:
                         return "Third speed category";
-                    default :
-                        return "Fourth speed category";                    
+                    default:
+                        return "Fourth speed category";
                 }
             }
-        }                      
+        }
         public float sum;
         private int count;
 
@@ -59,6 +54,6 @@ namespace RcSpeedStatistics
             Console.WriteLine($"Max speed value : {MaxSpeedValue} ");
             Console.WriteLine($"Average speed Value : {AverageSpeedValue}");
             Console.WriteLine($"Model category : {ModelSpeedCategory}");
-        }        
+        }
     }
 }
